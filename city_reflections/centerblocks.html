@@ -1,0 +1,66 @@
+<link href="blocks.css" rel="stylesheet" type="text/css" />
+<{if $lcr=='l'}><{assign var=lcr value='left'}>
+<{elseif $lcr=='r'}><{assign var=lcr value='right'}>
+<{else}><{assign var=lcr value='center'}>
+<{/if}>
+<{assign var=zone value="page_$topbottom$lcr"}>
+<{*
+<{if $xoBlocks[$zone]}>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="bluebox2">
+  <tr>
+    <td class="bluebox2_r1c1"></td>
+    <td class="bluebox2_r1c2"></td>
+    <td class="bluebox2_r1c3"></td>
+  </tr>
+  <tr>
+    <td class="bluebox2_r2c1"></td>
+    <td class="bluebox2_r2c2">
+<div class="xo-blockszone x2-secondary" id="xo-page-<{$topbottom}><{$lcr}>blocks">
+	<{foreach from=$xoBlocks[$zone] item=block}>
+	<div>
+	<div class="xo-block <{$block.module}>">
+		<{if $block.title}><div class="xo-blocktitle"><h3><{$block.title}></h3></div><{/if}>
+		<div class="xo-blockcontent"><{$block.content}></div>
+	</div>
+	</div>
+	<{/foreach}>
+	</div>	
+	</td>
+    <td class="bluebox2_r2c3"></td>
+  </tr>
+  <tr>
+    <td class="bluebox2_r3c1"></td>
+    <td class="bluebox2_r3c2"></td>
+    <td class="bluebox2_r3c3"></td>
+  </tr>
+</table>
+<{/if}>
+*}>
+<{if $xoBlocks[$zone]}>
+	<div class="xo-blockszone x2-secondary" id="xo-page-<{$topbottom}><{$lcr}>blocks">
+	<{foreach from=$xoBlocks[$zone] item=block}>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="bluebox2">
+  <tr>
+    <td class="bluebox2_r1c1"></td>
+    <td class="bluebox2_r1c2"></td>
+    <td class="bluebox2_r1c3"></td>
+  </tr>
+  <tr>
+    <td class="bluebox2_r2c1"></td>
+    <td class="bluebox2_r2c2">
+		<div class="xo-block <{$block.module}>">
+			<{if $block.title}><div class="xo-blocktitle"><h3><{$block.title}></h3></div><{/if}>
+			<div class="xo-blockcontent"><{$block.content}></div>
+		</div>
+	</td>
+    <td class="bluebox2_r2c3"></td>
+  </tr>
+  <tr>
+    <td class="bluebox2_r3c1"></td>
+    <td class="bluebox2_r3c2"></td>
+    <td class="bluebox2_r3c3"></td>
+  </tr>
+</table>
+	<{/foreach}>
+	</div>
+<{/if}>

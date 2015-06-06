@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<title><{$sitename}></title>
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+</head>
+<body  class="<{$xoops_dirname}> theme-default">
+<{if $xoBlocks.canvas_left and $xoBlocks.canvas_right}><{assign var=columns_layout value='threecolumns-layout'}>
+<{elseif $xoBlocks.canvas_left}><{assign var=columns_layout value='leftcolumn-layout'}>
+<{elseif $xoBlocks.canvas_right}><{assign var=columns_layout value='rightcolumn-layout'}>
+<{/if}>
+<div id="xo-canvas"<{if $columns_layout}> class="<{$columns_layout}>"<{/if}>>
+    <!-- editable part: you may want to edit the design contents of this header area	-->		
+<div><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="xo-headerL">&nbsp;</td>
+    <td id="xo-headerM">&nbsp;</td>
+    <td id="xo-headerR"></td>
+  </tr>
+</table>
+</div> 
+    <!-- end editable part: you may want to edit the design contents of this area	-->		
+    <!-- don't touch below, [TODO] unless you're going to improve the layout taking away the table and leaving the div's following the ZETA RETICULI CSS clasification. It's supposed to be a standard structure for everyone to use	-->		
+	<div id="xo-canvas-content" style="padding-top:40px; padding-bottom:60px; ">
+		  <table cellspacing="1" align="center" width="80%" border="0" cellpadding="10px;">
+			<tr>
+			  <td align="center"><div style="text-align: center; font-weight: bold; padding: 10px;"><h3><{$lang_siteclosemsg}></h3></div></td>
+			</tr>
+		  </table>
+		  
+		  <form action="<{$xoops_url}>/user.php" method="post">
+			<table cellspacing="0" align="center" style="width: 200px;">
+			  <tr>
+			  </tr>
+			  <tr>
+				<td style="padding: 2px;"><{$lang_username}></td><td style="padding: 2px;"><input type="text" name="uname" size="12" value="" /></td>
+			  </tr>
+			  <tr>
+				<td style="padding: 2px;"><{$lang_password}></td><td style="padding: 2px;"><input type="password" name="pass" size="12" /></td>
+			  </tr>
+			  <tr>
+				<td style="padding: 2px;">&nbsp;</td>
+				<td style="padding: 2px;">
+					<input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" />
+					<input type="hidden" name="xoops_login" value="1" />
+					<input type="submit" value="<{$lang_login}>" /></td>
+			  </tr>
+			</table>
+		  </form>
+  	</div>
+	<div id="xo-footer">
+		<{$xoops_footer}><br />
+	Theme by<a href="http://www.xoopsdesign.com"> XoopsDesign.com</a>	</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="Refresh" content="<{$time}>; url=<{$url}>" />
+<title><{$xoops_sitename}></title>
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+</head>
+
+<body  class="<{$xoops_dirname}> theme-default">
+<{if $xoBlocks.canvas_left and $xoBlocks.canvas_right}><{assign var=columns_layout value='threecolumns-layout'}>
+<{elseif $xoBlocks.canvas_left}><{assign var=columns_layout value='leftcolumn-layout'}>
+<{elseif $xoBlocks.canvas_right}><{assign var=columns_layout value='rightcolumn-layout'}>
+<{/if}>
+<div id="xo-canvas"<{if $columns_layout}> class="<{$columns_layout}>"<{/if}>>
+    <!-- editable part: you may want to edit the design contents of this header area	-->		
+<div><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="xo-headerL">&nbsp;</td>
+    <td id="xo-headerM">&nbsp;</td>
+    <td id="xo-headerR"><form style="margin: 0px;" action="<{$xoops_url}>/search.php" method="get">
+      <input class="searchBox" type="text" name="query" size="24"  />
+      <input type="hidden" name="action" value="results" />
+      <input class="search" name="submit" type="image"  src="<{xoImgUrl img/search.gif}>" value="search" />
+    </form></td>
+  </tr>
+</table>
+</div> 
+    <!-- end editable part: you may want to edit the design contents of this area	-->		
+    <!-- don't touch below, [TODO] unless you're going to improve the layout taking away the table and leaving the div's following the ZETA RETICULI CSS clasification. It's supposed to be a standard structure for everyone to use	-->		
+	<div id="xo-canvas-content" style="padding-top:40px; padding-bottom:60px; ">
+<div style="text-align:center;  font-weight : bold;">
+  <h4><{$message}></h4>
+  <p><{$lang_ifnotreload}></p>
+</div>
+<{if $xoops_logdump != ''}><div><{$xoops_logdump}></div><{/if}>
+	</div>
+</body>
+
+</html>

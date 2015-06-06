@@ -1,0 +1,66 @@
+
+.xo-block form {
+	margin:		0px;
+	padding:	0px;
+}
+#xo-content form {
+	margin:		0px;
+}
+
+.xo-block .formButtons {
+	text-align:	center;
+	padding:	.5em;
+}
+
+label {
+	display:		block;
+	padding:		0px;
+}
+
+.xo-formfield {
+	margin-bottom:	.2em;
+}
+.xo-formbuttons {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color: #666666;
+	font-size:90%;
+	border: 1px solid #CCCCCC;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+#xo-content .xo-formfield.required label:after {
+	content:		'*';
+	color:			#ff0000;
+}
+select[name=timezone_offset] {
+	font-size:			90%;
+}
+
+input[type=text], input[type=password], textarea {
+	border:				1px solid #ddd;
+	margin:				2px 0px;
+	padding-left:		.2em;
+	background-color:	#fff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:100%;
+		color: #333;
+
+	
+}
+input[type=text], input[type=password] {
+	color: #666666;
+
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+	border-color:		#035789;
+	outline:			1px solid #035789;
+	background-color:	#FAFAFA;
+	color: #333;
+}
+
+select {
+	color: #666;
+}

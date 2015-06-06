@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+<{* Center blocks display order valid values are:  lrc (left right / center) lcr (left center right) clr (center / left right)	*}>
+	<{assign var=theme_top_order value=clr}>
+	<{assign var=theme_bottom_order value=clr}>
+	<{assign var=theme_name value=$xoTheme->folderName}>
+
+	<title><{$xoops_pagetitle}> : <{$xoops_sitename}> : <{$xoops_slogan}></title>
+
+	<meta name="robots" content="<{$xoops_meta_robots}>" />
+	<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+	<meta name="description" content="<{$xoops_meta_description}>" />
+	<meta name="rating" content="<{$xoops_meta_rating}>" />
+	<meta name="author" content="<{$xoops_meta_author}>" />
+	<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+	<meta name="generator" content="XOOPS" />
+
+
+	<link rel="shortcut icon" type="image/ico" href="<{xoImgUrl /favicon.ico}>" />
+	<link rel="icon" type="image/png" href="<{xoImgUrl /icon.png}>" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<{xoImgUrl /layout-soup.css}>" />
+	<link rel="stylesheet" type="text/css" media="all" title="Blue" href="<{xoImgUrl /style.css}>" />
+	<{$xoops_module_header}>
+</head>
+
+<body  class="<{$xoops_dirname}> theme-default">
+<{if $xoBlocks.canvas_left and $xoBlocks.canvas_right}><{assign var=columns_layout value='threecolumns-layout'}>
+<{elseif $xoBlocks.canvas_left}><{assign var=columns_layout value='leftcolumn-layout'}>
+<{elseif $xoBlocks.canvas_right}><{assign var=columns_layout value='rightcolumn-layout'}>
+<{/if}>
+<div id="xo-canvas"<{if $columns_layout}> class="<{$columns_layout}>"<{/if}>>
+    <!-- editable part: you may want to edit the design contents of this header area	-->		
+<div><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="xo-headerL">&nbsp;</td>
+    <td id="xo-headerM">&nbsp;</td>
+    <td id="xo-headerR"><form style="margin: 0px;" action="<{$xoops_url}>/search.php" method="get">
+      <input class="searchBox" type="text" name="query" size="24"  />
+      <input type="hidden" name="action" value="results" />
+      <input class="search" name="submit" type="image"  src="<{xoImgUrl img/search.gif}>" value="search" />
+    </form></td>
+  </tr>
+</table>
+</div> 
+    <!-- end editable part: you may want to edit the design contents of this area	-->		
+    <!-- don't touch below, [TODO] unless you're going to improve the layout taking away the table and leaving the div's following the ZETA RETICULI CSS clasification. It's supposed to be a standard structure for everyone to use	-->		
+	<div id="xo-canvas-content">
+		<{if $xoBlocks.canvas_top}>
+		<{includeq file="$theme_name/blockszone.html" blocks=$xoBlocks.canvas_top
+			zoneClass='' zoneId='xo-canvas-header'
+		}>
+		<{/if}>
+		<table id="xo-canvas-columns" cellspacing="0">
+		<tr>
+			<{if $xoBlocks.canvas_left}>
+			<{includeq file="$theme_name/blockszone.html" blocks=$xoBlocks.canvas_left
+				zoneClass='xo-canvas-column' zoneId='xo-canvas-leftcolumn' zoneTag='td'
+			}>
+			<{/if}>
+			<td id="xo-page">
+				<{if $xoBlocks.page_topleft or $xoBlocks.page_topcenter or $xoBlocks.page_topright}>
+				<div class="xo-blockszone xo-<{$theme_top_order}>pageblocks" id="xo-page-topblocks">
+					<{includeq file="$theme_name/centerblocks2.html" topbottom=top lcr=$theme_top_order|substr:0:1}>
+					<{includeq file="$theme_name/centerblocks.html" topbottom=top lcr=$theme_top_order|substr:1:1}>
+					<{includeq file="$theme_name/centerblocks.html" topbottom=top lcr=$theme_top_order|substr:2:1}>
+				</div>
+				<{/if}>
+				<{if $xoops_contents}><div id="xo-content"><{$xoops_contents}></div><{/if}>
+				<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomcenter or $xoBlocks.page_bottomright}>
+				<div class="xo-blockszone xo-<{$theme_bottom_order}>pageblocks" id="xo-page-bottomblocks">
+					<{includeq file="$theme_name/centerblocks2.html" topbottom=bottom lcr=$theme_bottom_order|substr:0:1}>
+					<{includeq file="$theme_name/centerblocks.html" topbottom=bottom lcr=$theme_bottom_order|substr:1:1}>
+					<{includeq file="$theme_name/centerblocks.html" topbottom=bottom lcr=$theme_bottom_order|substr:2:1}>
+				</div>
+				<{/if}>
+			</td>
+			<{if $xoBlocks.canvas_right}>
+			<{includeq file="$theme_name/blockszone.html" blocks=$xoBlocks.canvas_right
+				zoneClass='xo-canvas-column' zoneId='xo-canvas-rightcolumn' zoneTag='td'
+			}>
+			<{/if}>
+		</tr>
+		</table>
+		<{if $xoBlocks.canvas_bottom}>
+		<{includeq file="$theme_name/blockszone.html" blocks=$xoBlocks.canvas_bottom
+			zoneClass='' zoneId='xo-canvas-footer'
+		}>
+		<{/if}>
+	</div>
+	<div id="xo-footer">
+		<{$xoops_footer}><br />
+	Theme by<a href="http://www.xoopsdesign.com"> XoopsDesign.com</a>	</div>
+    </div>
+</body>
+</html>

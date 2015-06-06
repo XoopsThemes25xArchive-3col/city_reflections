@@ -1,0 +1,28 @@
+<{if $blocks}>
+	<<{$zoneTag}> class="xo-blockszone x2-secondary<{if $zoneClass}> <{$zoneClass}><{/if}>"<{if $zoneId}> id="<{$zoneId}>"<{/if}>>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="lr_box_r1c1"></td>
+    <td class="lr_box_r1c2"></td>
+    <td class="lr_box_r1c3"></td>
+  </tr>
+  <tr>
+    <td class="lr_box_r2c1"></td>
+    <td class="lr_box_r2c2">
+	<{foreach from=$blocks item=block}>
+	<div class="xo-block <{$block.module}>">
+		<{if $block.title}><div class="xo-blocktitle"><h3><{$block.title}></h3></div><{/if}>
+		<div class="xo-blockcontent"><{$block.content}></div>
+	</div>
+	<{/foreach}>
+	</td>
+    <td  class="lr_box_r2c3"></td>
+  </tr>
+  <tr>
+    <td class="lr_box_r3c1"></td>
+    <td class="lr_box_r3c2"></td>
+    <td class="lr_box_r3c3"></td>
+  </tr>
+</table>
+	</<{$zoneTag}>>
+<{/if}>
